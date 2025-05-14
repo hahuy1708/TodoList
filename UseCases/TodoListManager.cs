@@ -27,8 +27,9 @@ public class TodoListManager
         if (item != null)
         {
              item.IsCompleted = true;
+             Repository.Update(item);
         }
-        Repository.Update(item);
+        
     }
 
     public void Delete(int id)
