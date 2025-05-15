@@ -5,7 +5,7 @@ namespace Infrastructure;
 
 public class InMemoryTodoItemRepository : ITodoListRepository
 {
-    private List<TodoItem> _items;
+    private readonly List<TodoItem> _items;
 
     public InMemoryTodoItemRepository()
     {
