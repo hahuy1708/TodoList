@@ -5,6 +5,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">To Do</h1>
+    <ul>
+        @foreach (var item in Model.items)
+        {
+            <li>@item.Text</li>
+        }
+    </ul>
+    <a asp-action="Create" class="btn btn-primary" href="Create"> Add</a>
 </div>

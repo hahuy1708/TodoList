@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Models;
 using UseCases;
@@ -19,7 +20,26 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         var todoItems = _listManager.getTodoItems();
-        return View(new TodoListViewModel() {items = todoItems} );
+        return View(new TodoListViewModel()
+        {
+            items = todoItems
+        } );
+    }
+
+    [HttpGet]
+    public IActionResult Add()
+    {
+        return View("Add");
+    }
+
+    [HttpPost]
+    public IActionResult Add(Item item)
+    {
+        _listManager.AddTodoItem(new TodoItem()
+        {
+            Text = item.Text,
+        });
+        return RedirectToAction("Index");
     }
 
     
