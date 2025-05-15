@@ -19,7 +19,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         var todoItems = _listManager.getTodoItems();
-        return View(todoItems);
+        return View(new TodoListViewModel() {items = todoItems} );
     }
 
     
