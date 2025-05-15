@@ -1,7 +1,14 @@
+using Infrastructure;
+using UseCases;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<ITodoListRepository, InMemoryTodoItemRepository>();
+
+builder.Services.AddTransient<TodoListManager>();
 
 var app = builder.Build();
 
